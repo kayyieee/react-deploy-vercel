@@ -1,38 +1,741 @@
-.App {
+:root {
+  --primary-gradient: linear-gradient(135deg, #5b7cfa 0%, #4aa8ff 50%, #00d5ff 100%); /* Smooth Blue Gradient */
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5b9e8, #7289da, #4aa8ff, #00d5ff); /* Softer, balanced pink-blue-teal gradient */
+  background-size: 300% 300%; /* Wider animation range */
+  animation: gradient-marquee 12s linear infinite; /* Smooth marquee effect */
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@keyframes gradient-marquee {
+  0% { background-position: 0% 0%; } /* Starts at top-left */
+  50% { background-position: 100% 100%; } /* Moves to bottom-right */
+  100% { background-position: 0% 0%; } /* Loops back to top-left */
+}
+
+.container {
+  max-width: 480px; /* Reduced from 600px */
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 1.5rem; 
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  transition: transform 0.3s ease;
+}
+
+
+.glass-card:hover {
+  transform: translateY(-4px);
+}
+
+h1, h2 {
+  color: white;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+/* Logo container */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+.logo {
+  height: 3.5em; /* Reduced from 4em */
+  padding: 0.75em; /* Reduced from 1em */
+  will-change: filter;
+  transition: filter 0.3s;
+}
+
+.logo:hover {
+  filter: drop-shadow(0 0 2em rgba(100, 108, 255, 0.6));
+}
+
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em rgba(97, 218, 251, 0.6));
+}
+
+.counter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem; /* Reduced from 0.75rem */
+  justify-content: center;
+  align-items: center;
+}
+
+.counter p {
+  color: white;
+  font-size: 1.25rem;
+  margin: 0.75rem 0;
+  min-width: 100%;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
+
+.btn {
+  background: linear-gradient(135deg, #3b82f6, #2563eb); /* Vivid blue gradient */
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8125rem;
+  min-width: 90px;
+  max-width: 150px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06),
+              0 3px 0 #1d4ed8; /* 3D shadow effect */
+  position: relative;
+}
+
+/* Hover Effect for Primary Button */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05),
+              0 4px 0 #1d4ed8; /* Enhanced 3D shadow on hover */
+}
+
+/* Active Effect for Primary Button */
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1),
+              0 1px 2px -1px rgba(0, 0, 0, 0.06),
+              0 1px 0 #1d4ed8; /* Pressed 3D shadow */
+}
+/* Reset Button - Stunning Red Gradient */
+.btn.reset {
+  background: linear-gradient(135deg, #ff4d4d, #ff1a1a); /* Vibrant red gradient */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+              0 2px 4px -1px rgba(0, 0, 0, 0.06),
+              0 3px 0 #cc0000; /* 3D shadow effect */
+}
+
+/* Hover Effect for Reset Button */
+.btn.reset:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px -3px rgba(0, 0, 0, 0.1),
+              0 4px 6px -2px rgba(0, 0, 0, 0.05),
+              0 4px 0 #cc0000; /* Enhanced 3D shadow on hover */
+}
+
+/* Active Effect for Reset Button */
+.btn.reset:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.1),
+              0 1px 2px -1px rgba(0, 0, 0, 0.06),
+              0 1px 0 #cc0000; /* Pressed 3D shadow */
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Reduced from 1rem */
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+}
+
+.calculator input {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.625rem;
+  color: white;
+  font-size: 0.9375rem;
+  transition: all 0.3s ease;
+  max-width: 100%;
+}
+
+.calculator input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.calculator input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.calc-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.calculator p {
+  color: white;
+  font-size: 1.125rem;
+  text-align: center;
+  margin: 0.5rem 0;
+  padding: 0.625rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+}
+
+/* Action buttons container */
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 1.25rem;
+  margin: 1.25rem 0;
+  padding: 0.5rem;
+}
+
+/* Base styles for action buttons */
+.btn.add-new-input,
+.btn.remove-input {
+  position: relative;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 120px;
+}
+
+/* Add New Input button */
+.btn.add-new-input {
+  background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+  box-shadow: 0 2px 0 rgb(107, 70, 193),
+              0 3px 0 rgb(88, 51, 173),
+              0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Remove Input button */
+.btn.remove-input {
+  background: linear-gradient(135deg, #F43F5E 0%, #FB7185 100%);
+  box-shadow: 0 2px 0 rgb(190, 18, 60),
+              0 3px 0 rgb(159, 18, 57),
+              0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Shared pseudo-element for 3D lighting effect */
+.btn.add-new-input::before,
+.btn.remove-input::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.15)
+  );
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Shared glow effect */
+.btn.add-new-input::after,
+.btn.remove-input::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border-radius: 9px;
+  z-index: -1;
+  opacity: 0;
+  filter: blur(4px);
+  transition: opacity 0.2s ease;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Custom glow colors */
+.btn.add-new-input::after {
+  background: linear-gradient(45deg, #8B5CF6, #A855F7, #D946EF);
+}
+
+.btn.remove-input::after {
+  background: linear-gradient(45deg, #F43F5E, #FB7185, #FDA4AF);
+}
+
+/* Hover states */
+.btn.add-new-input:hover,
+.btn.remove-input:hover {
+  transform: translateY(-1px) translateZ(0);
+}
+
+.btn.add-new-input:hover {
+  box-shadow: 0 3px 0 rgb(107, 70, 193),
+              0 4px 0 rgb(88, 51, 173),
+              0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn.remove-input:hover {
+  box-shadow: 0 3px 0 rgb(190, 18, 60),
+              0 4px 0 rgb(159, 18, 57),
+              0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn.add-new-input:hover::after,
+.btn.remove-input:hover::after {
+  opacity: 0.4;
+}
+
+/* Active states */
+.btn.add-new-input:active,
+.btn.remove-input:active {
+  transform: translateY(1px) translateZ(0);
+}
+
+.btn.add-new-input:active {
+  box-shadow: 0 1px 0 rgb(107, 70, 193),
+              0 2px 0 rgb(88, 51, 173),
+              0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn.remove-input:active {
+  box-shadow: 0 1px 0 rgb(190, 18, 60),
+              0 2px 0 rgb(159, 18, 57),
+              0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn.add-new-input,
+  .btn.remove-input {
+    width: 100%;
+    min-width: unset;
+  }
+}
+/*deleton ra*/
+  
+  .btn.add-new-set {
+    width: fit-content;
+    margin: 1rem auto;
+    display: block;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: linear-gradient(145deg, #5b93ff, #3d70ff); /* Deep royal blue gradient */
+    backdrop-filter: blur(10px);
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+    box-shadow: 
+      0 4px 6px rgba(0, 0, 0, 0.2), 
+      0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Subtle Glass Reflection */
+  .btn.add-new-set::before {
+    content: '';
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    width: 80%;
+    height: 40%;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    filter: blur(10px);
+    opacity: 0.4;
+    transition: opacity 0.3s ease-in-out;
+  }
+  
+  /* Soft Edge Glow */
+  .btn.add-new-set::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    background: linear-gradient(45deg, rgba(255, 99, 233, 0.4), rgba(75, 222, 255, 0.4));
+    filter: blur(12px);
+    opacity: 0.3;
+    transition: opacity 0.4s ease-in-out;
+    z-index: -1;
+  }
+  
+  /* Hover Effect */
+  .btn.add-new-set:hover {
+    background: linear-gradient(145deg, #3f75f5, #2a5ddf); /* Slightly darker blue */
+    box-shadow: 
+      0 6px 12px rgba(0, 0, 0, 0.3),
+      0 3px 6px rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+  }
+  
+  .btn.add-new-set:hover::before {
+    opacity: 0.6;
+  }
+  
+  .btn.add-new-set:hover::after {
+    opacity: 0.5;
+    filter: blur(15px);
+  }
+  
+  /* Click Effect */
+  .btn.add-new-set:active {
+    transform: translateY(1px);
+    box-shadow: 
+      0 3px 6px rgba(0, 0, 0, 0.2),
+      0 2px 4px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Responsive */
+  @media (max-width: 640px) {
+    .btn.add-new-set {
+      width: 100%;
+      max-width: 100%;
+      padding: 1rem;
+    }
+  }
+  
+  
+  .glass-card {
+    padding: 1.25rem;
+  }
+  
+  .calc-buttons {
+    flex-direction: row;
+    justify-content: center;
+  }
+  
+  .btn {
+    width: auto;
+    min-width: 80px; 
+    font-size: 0.75rem;
+  }
+
+/* Action buttons container */
+.action-buttons {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 1.25rem;
+  margin: 1.25rem 0;
+  padding: 0.5rem;
+}
+
+/* Base styles for action buttons */
+.btn.add-new-input,
+.btn.remove-input {
+  position: relative;
+  padding: 0.625rem 1.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
   color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  min-width: 120px;
 }
 
-.App-link {
-  color: #61dafb;
+/* Add New Input button - Bright Green */
+.btn.add-new-input {
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%); /* Bright green gradient */
+  box-shadow: 0 2px 0 rgb(21, 128, 61),
+              0 3px 0 rgb(20, 110, 53),
+              0 4px 8px rgba(0, 0, 0, 0.08);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Remove Input button - Bright Red */
+.btn.remove-input {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%); /* Bright red gradient */
+  box-shadow: 0 2px 0 rgb(185, 28, 28),
+              0 3px 0 rgb(153, 27, 27),
+              0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Shared pseudo-element for 3D lighting effect */
+.btn.add-new-input::before,
+.btn.remove-input::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.15)
+  );
+  pointer-events: none;
+}
+
+/* Shared glow effect */
+.btn.add-new-input::after,
+.btn.remove-input::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border-radius: 9px;
+  z-index: -1;
+  opacity: 0;
+  filter: blur(4px);
+  transition: opacity 0.2s ease;
+}
+
+/* Custom glow colors */
+.btn.add-new-input::after {
+  background: linear-gradient(45deg, #22c55e, #16a34a, #4ade80); /* Green glow */
+}
+
+.btn.remove-input::after {
+  background: linear-gradient(45deg, #ef4444, #dc2626, #f87171); /* Red glow */
+}
+
+/* Hover states */
+.btn.add-new-input:hover,
+.btn.remove-input:hover {
+  transform: translateY(-1px) translateZ(0);
+}
+
+.btn.add-new-input:hover {
+  box-shadow: 0 3px 0 rgb(21, 128, 61),
+              0 4px 0 rgb(20, 110, 53),
+              0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn.remove-input:hover {
+  box-shadow: 0 3px 0 rgb(185, 28, 28),
+              0 4px 0 rgb(153, 27, 27),
+              0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn.add-new-input:hover::after,
+.btn.remove-input:hover::after {
+  opacity: 0.4;
+}
+
+/* Active states */
+.btn.add-new-input:active,
+.btn.remove-input:active {
+  transform: translateY(1px) translateZ(0);
+}
+
+.btn.add-new-input:active {
+  box-shadow: 0 1px 0 rgb(21, 128, 61),
+              0 2px 0 rgb(20, 110, 53),
+              0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn.remove-input:active {
+  box-shadow: 0 1px 0 rgb(185, 28, 28),
+              0 2px 0 rgb(153, 27, 27),
+              0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive design */
+@media (max-width: 640px) {
+  .action-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .btn.add-new-input,
+  .btn.remove-input {
+    width: 100%;
+    min-width: unset;
   }
+}
+
+.btn1 {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 40px;
+  width: 80px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.025em;
+  color: white;
+  background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transform: translateZ(0);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 2px 0 rgb(45, 35, 166),
+              0 3px 0 rgb(40, 31, 147),
+              0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Pseudo-element for 3D effect */
+.btn1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 8px;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.1) 50%,
+    rgba(0, 0, 0, 0.15)
+  );
+  pointer-events: none;
+}
+
+/* Subtle glow effect on hover */
+.btn1::after {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  background: linear-gradient(45deg, #4F46E5, #6366F1, #818CF8);
+  border-radius: 9px;
+  z-index: -1;
+  opacity: 0;
+  filter: blur(4px);
+  transition: opacity 0.2s ease;
+}
+
+/* Hover state - reduced shadow */
+.btn1:hover {
+  transform: translateY(-1px) translateZ(0);
+  box-shadow: 0 3px 0 rgb(45, 35, 166),
+              0 4px 0 rgb(40, 31, 147),
+              0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn1:hover::after {
+  opacity: 0.4;
+}
+
+/* Active state */
+.btn1:active {
+  transform: translateY(1px) translateZ(0);
+  box-shadow: 0 1px 0 rgb(45, 35, 166),
+              0 2px 0 rgb(40, 31, 147),
+              0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Custom colors for operation buttons */
+.btn1[onClick*='add'] {
+  background: linear-gradient(135deg, #2563EB 0%, #3B82F6 100%);
+  box-shadow: 0 2px 0 rgb(25, 70, 186),
+              0 3px 0 rgb(22, 62, 166),
+              0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn1[onClick*='subtract'] {
+  background: linear-gradient(135deg, #7C3AED 0%, #8B5CF6 100%);
+  box-shadow: 0 2px 0 rgb(89, 41, 171),
+              0 3px 0 rgb(79, 36, 152),
+              0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn1[onClick*='multiply'] {
+  background: linear-gradient(135deg, #059669 0%, #10B981 100%);
+  box-shadow: 0 2px 0 rgb(3, 109, 76),
+              0 3px 0 rgb(2, 96, 67),
+              0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.btn1[onClick*='divide'] {
+  background: linear-gradient(135deg, #EA580C 0%, #F97316 100%);
+  box-shadow: 0 2px 0 rgb(186, 71, 9),
+              0 3px 0 rgb(166, 63, 8),
+              0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Custom hover glows for each operation - reduced intensity */
+.btn1[onClick*='add']::after {
+  background: linear-gradient(45deg, #2563EB, #3B82F6, #60A5FA);
+}
+
+.btn1[onClick*='subtract']::after {
+  background: linear-gradient(45deg, #7C3AED, #8B5CF6, #A78BFA);
+}
+
+.btn1[onClick*='multiply']::after {
+  background: linear-gradient(45deg, #059669, #10B981, #34D399);
+}
+
+.btn1[onClick*='divide']::after {
+  background: linear-gradient(45deg, #EA580C, #F97316, #FB923C);
+}
+
+/* Style for the count number */
+.counter p {
+  color: white; /* Default text color */
+  font-size: 1.25rem;
+  margin: 0.75rem 0;
+  min-width: 100%;
+  text-align: center;
+  font-weight: bold;
+}
+
+.counter p span.count-number {
+  color: #e0d100; /* Vivid blue for the count number */
+  font-weight: bold;
+}
+
+/* Style for the result number */
+.calculator p {
+  color: white; /* Default text color */
+  font-size: 1.125rem;
+  text-align: center;
+  margin: 0.5rem 0;
+  padding: 0.625rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  font-weight: bold;
+}
+
+.calculator p span.result-number {
+  color: #e0d100; /* Vivid green for the result number */
+  font-weight: bold;
 }
