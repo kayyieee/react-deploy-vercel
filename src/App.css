@@ -200,14 +200,32 @@ h1, h2 {
   border-radius: 0.5rem;
 }
 
-/* Action buttons container */
+/* Action buttons container 
 .action-buttons {
   display: flex;
   justify-content: center;
   gap: 1.25rem;
   margin: 1.25rem 0;
   padding: 0.5rem;
+}*/
+
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap; /* Allows buttons to wrap if needed */
+  justify-content: center; /* Centers buttons */
+  gap: 0.75rem; /* Adjusted gap for smaller screens */
+  margin: 1rem 0;
+  padding: 0.5rem;
+  width: 100%;
 }
+
+.action-buttons .btn {
+  flex: 1; /* Makes buttons take equal space */
+  min-width: 120px; /* Prevents buttons from becoming too small */
+  max-width: 45%; /* Ensures two buttons per row on smaller screens */
+  text-align: center;
+}
+
 
 /* Base styles for action buttons */
 .btn.add-new-input,
@@ -765,5 +783,20 @@ h1, h2 {
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
+  }
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+  animation: spin infinite 10s linear;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
