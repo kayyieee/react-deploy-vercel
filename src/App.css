@@ -209,6 +209,8 @@ h1, h2 {
   padding: 0.5rem;
 }*/
 
+/*balikan rani*/
+
 .action-buttons {
   display: flex;
   flex-wrap: wrap; /* Allows buttons to wrap if needed */
@@ -589,7 +591,7 @@ h1, h2 {
               0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive design */
+/* Responsive design 
 @media (max-width: 640px) {
   .action-buttons {
     flex-direction: column;
@@ -601,7 +603,24 @@ h1, h2 {
     width: 100%;
     min-width: unset;
   }
+}*/
+
+@media (max-width: 640px) {
+  .action-buttons {
+    flex-direction: row; /* Keep buttons in a row */
+    gap: 0.5rem; /* Reduce the gap between buttons */
+    justify-content: center; /* Keep them centered */
+    flex-wrap: nowrap; /* Prevent wrapping */
+  }
+
+  .btn.add-new-input,
+  .btn.remove-input {
+    width: auto; /* Ensure buttons don’t take full width */
+    min-width: 100px; /* Adjust width for better mobile fit */
+    padding: 0.5rem 1rem; /* Adjust padding for better spacing */
+  }
 }
+
 
 .btn1 {
   position: relative;
@@ -758,7 +777,7 @@ h1, h2 {
   font-weight: bold;
 }
 
-.logo {
+/*.logo {
   height: 6em;
   padding: 1.5em;
   will-change: filter;
@@ -784,12 +803,17 @@ h1, h2 {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
-}
+}*/
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
   animation: spin infinite 10s linear;
+
+  /*bag o na dugang*/
+  
+  display: grid;
+    place-items: center;
 }
 
 @keyframes spin {
