@@ -811,10 +811,14 @@ h1, h2 {
   animation: spin infinite 10s linear;
 
   /*bag o na dugang*/
-  
-  display: grid;
-    place-items: center;
+
+ 
+    display: block;
+    margin: 0 auto;
+    text-align: center;
 }
+
+
 
 @keyframes spin {
   from {
